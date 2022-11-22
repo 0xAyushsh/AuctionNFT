@@ -18,7 +18,7 @@ const deployAuction: DeployFunction = async (
     //Getting deployer config from named accounts config in hardhat-config.ts file
     const { deployer } = await getNamedAccounts()
 
-    //Provide agruments for constructor in the order (uint _numberOfMinutes,uint _minBid, string memory nftName, string memory nftSymbol, string memory _baseURI, uint _MAX_SUPPLY)
+    //Provide agruments for constructor : (uint _numberOfMinutes,uint _minBid, string memory nftName, string memory nftSymbol, string memory _baseURI, uint _MAX_SUPPLY)
     const args: any[] = [1,1,"Peter Griffin", "PG","https://gateway.pinata.cloud/ipfs/QmQxCPyEJXz3XoWMH1LHGSnaPZVF7TmYaw2SszFFH6jRHC/",1]
 
     log("Start Deployment of Auction contract")
