@@ -1,67 +1,40 @@
-# Hardhat Project Template
+# AuctionNFT Smart Contract
 
-Steps
+Contract is deployed on Goerli Network at address : 0x5cc4B132b9e18e446b45c9f9CFd02423aDafFE69
 
-1. Create a folder on your device and enter the folder
+## Steps 
+
+1. Clone the project into your local.
+
+2. Open terminal, navigate to root folder and run
 ```
-mkdir projectTemplate
-cd projectTemplate
-```
-2. Clone this repo on to your folder.
-```
-git clone https://github.com/SrikanthAlva/HardhatTemplate.git .
-```
-3. Download dependencies
-```
-yarn 
-OR
 npm install
 ```
-4. Create .env file and copy content from .env.example folder
-5. Get Goerli RPC URL
+
+3. Create a .env file in the root folder and add variables 
 ```
-Create an account in alchemy.com
-Create New App
-Enter an App Name
-Select ETHEREUM as Chain and GOERLI as Network
-Click on Create App. App will be displayed on your Dashboard
-Click on View Details of the App
-Clcik on View Key > Copy the HTTPS URL
-Paste the URL next to GOERLI_RPC_URL in .env file 
+GOERLI_PRIVATE_KEY={YOUR_PRIVATE_KEY}
+GOERLI_RPC_URL={YOUR_GOERLI_RPC_URL}
+ETHERSCAN_API_KEY={YOUR_ETHERSCAN_API_KEY}
 ```
-6. Get Goerli Ethers
+
+4. Pass the Auction Time , Minimum bid, NFT Name, NFT Symbol, Base URL for Metadata, Max supply of tokens in the constructor in 
+       deploy/deploy-auctionNFT.ts 
+       
+5. To compile , run
 ```
-Go to https://goerlifaucet.com/
-Login with your Alchemy Account
-Copy your wallet address from Metamask and Paste it in the input box
-Click on Send ETH
-You will receive 0.05 ETH in your wallet in a few mins.
+npx hardhat compile
 ```
-7. Get GOERLI_PRIVATE_KEY
+
+6. To deploy on local network run
 ```
-Open Metamask
-Click on the Right Menu Next to your Wallet Address
-Click on Account Details > Export Private Key > Enter your Metamask Password  > Confirm
-Copy the Private Key and Paste it under GOERLI_PRIVATE_KEY in .env file
+npx hardhat deploy --tags auction 
 ```
-8. Get ETHERSCAN_API_KEY
+
+7. To deploy on Goerli network run
 ```
-Go to https://etherscan.io/
-Create an Account and Login to your Account
-Click on your Name to open a Drop down menu > Select API KEYS
-Create New API Key and Paste the API KEY under ETHERSCAN_API_KEY in .env file.
+npx hardhat deploy --tags auction --network goerli
 ```
-9. General Commands
-```
-yarn hardhat compile - to compile your smart contract
-yarn hardhat test - to execute tests of the smart contract
-yarn hardhat node - to start persistent hardhat environment 
-yarn hardhat run scripts/* - execute all scripts under scripts folder.
-yarn hardhat run scripts/sample.ts - execute script in smaple.ts in the scripts folder.
-yarn hardhat deploy - executes all scripts in deploy folder to hardhat network
-yarn hardhat deploy --network localhost - executes all scripts in deploy folder to persistent hardhat network
-yarn hardhat deploy --network localhost --tags all - executes all scripts in deploy folder with tag "all" to persistent hardhat network
-yarn hardhat deploy --network goerli - executes all scripts in deploy folder to goerli network
-```
+
 
 
